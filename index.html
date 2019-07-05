@@ -10,7 +10,18 @@
   </head>
   <body>
     <div id="app">
-      <template></template>
+      <template>
+        <button type="button" class="btn btn-primary" @click="getRandomColor()">
+          Change color
+        </button>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          :style="{'backgroundColor': currentColor}"
+        >
+          A simple danger alert—check it out!
+        </div>
+      </template>
     </div>
     <script src="js/app.js"></script>
   </body>
