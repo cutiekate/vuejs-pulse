@@ -21,8 +21,6 @@ let app = new Vue({
   },
   created() {
     // https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
-    axios
-      .get("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5")
-      .then(response => (this.api = response.data));
+    axios.get("api/api.JSON").then(response => (this.api = response.data));
   }
 });
