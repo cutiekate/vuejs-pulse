@@ -8,21 +8,11 @@ let app = new Vue({
       sale: "ASC"
     }
   }),
-  methods: {
-    sortApi(field) {
-      this.sortDirection[field] =
-        this.sortDirection[field] === "ASC" ? "DESC" : "ASC";
-      this.api.sort((a, b) =>
-        this.sortDirection[field] === "ASC"
-          ? a[field] - b[field]
-          : b[field] - a[field]
-      );
-    }
-  },
+  methods: {},
   created() {
     // https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
     axios
-      .get("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5")
+      .get("https://putiloff.com/api")
       .then(response => (this.api = response.data));
   }
 });

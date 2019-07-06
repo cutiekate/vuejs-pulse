@@ -17,21 +17,36 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Main currency</th>
-              <th scope="col">Currency</th>
-              <th scope="col" class="can-sort" @click="sortApi('buy')">Buy</th>
-              <th scope="col" class="can-sort" @click="sortApi('sale')">
-                Sale
-              </th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Website</th>
+              <th scope="col">Company geo</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(item, index) in api" :key="index">
-              <th scope="row">{{ index + 1 }}</th>
-              <td>{{ item.base_ccy }}</td>
-              <td>{{ item.ccy }}</td>
-              <td>{{ item.buy }}</td>
-              <td>{{ item.sale }}</td>
+              <th scope="row">{{ item.id }}</th>
+              <td>{{ item.name }}</td>
+              <td>{{ item.username }}</td>
+              <td>
+                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+              </td>
+              <td>{{ item.phone }}</td>
+              <td>
+                <a :href="`http://${item.website}`" target="_blank">{{
+                  item.website
+                }}</a>
+              </td>
+              <td>
+                <a
+                  :href="`https://www.google.com/maps/@${item.address.geo.lat},${item.address.geo.lng},18.25z`"
+                  target="_blank"
+                  >{{ item.address.city }}, {{ item.address.street }},
+                  {{ item.address.suite }}</a
+                >
+              </td>
             </tr>
           </tbody>
         </table>
