@@ -2,13 +2,13 @@ let app = new Vue({
   el: "#app",
   data: () => ({
     api: null,
-    selected: "",
-    sortDirection: {
-      buy: "ASC",
-      sale: "ASC"
-    }
+    searchData: ""
   }),
-  methods: {},
+  methods: {
+    isSearched(name) {
+      return name.toLowerCase().includes(this.searchData.toLowerCase());
+    }
+  },
   created() {
     // https://ru.vuejs.org/v2/cookbook/using-axios-to-consume-apis.html
     axios

@@ -13,6 +13,12 @@
   <body>
     <div id="app">
       <template>
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Search by name"
+          v-model="searchData"
+        />
         <table class="table table-dark">
           <thead>
             <tr>
@@ -26,28 +32,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in api" :key="index">
-              <th scope="row">{{ item.id }}</th>
-              <td>{{ item.name }}</td>
-              <td>{{ item.username }}</td>
-              <td>
-                <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-              </td>
-              <td>{{ item.phone }}</td>
-              <td>
-                <a :href="`http://${item.website}`" target="_blank">{{
-                  item.website
-                }}</a>
-              </td>
-              <td>
-                <a
-                  :href="`https://www.google.com/maps/@${item.address.geo.lat},${item.address.geo.lng},18.25z`"
-                  target="_blank"
-                  >{{ item.address.city }}, {{ item.address.street }},
-                  {{ item.address.suite }}</a
-                >
-              </td>
-            </tr>
+            <template v-for="(item, index) in api">
+              <tr :key="index" v-if="isSearched(item.name)">
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{ item.username }}</td>
+                <td>
+                  <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+                </td>
+                <td>{{ item.phone }}</td>
+                <td>
+                  <a :href="`http://${item.website}`" target="_blank">{{
+                    item.website
+                  }}</a>
+                </td>
+                <td>
+                  <a
+                    :href="`https://www.google.com/maps/@${item.address.geo.lat},${item.address.geo.lng},18.25z`"
+                    target="_blank"
+                    >{{ item.address.city }}, {{ item.address.street }},
+                    {{ item.address.suite }}</a
+                  >
+                </td>
+              </tr>
+            </template>
           </tbody>
         </table>
       </template>

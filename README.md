@@ -2,7 +2,9 @@
 
 #https://putiloff.com/api
 
-#.htaccess #<IfModule mod_headers.c>
+#.htaccess
+
+#<IfModule mod_headers.c>
 
 # Header set Access-Control-Allow-Origin "\*"
 
