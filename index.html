@@ -1,66 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>Vue.js cdn</title>
-  </head>
-  <body>
-    <div id="app">
-      <template>
-        {{message}}
-        <input
-          type="search"
-          class="form-control"
-          placeholder="Search by name"
-          v-model="searchData"
-        />
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Website</th>
-              <th scope="col">Company geo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template v-for="(item, index) in api">
-              <tr :key="index" v-if="isSearched(item.name)">
-                <th scope="row">{{ item.id }}</th>
-                <td>{{ item.name }}</td>
-                <td>{{ item.username }}</td>
-                <td>
-                  <a :href="`mailto:${item.email}`">{{ item.email }}</a>
-                </td>
-                <td>{{ item.phone }}</td>
-                <td>
-                  <a :href="`http://${item.website}`" target="_blank">{{
-                    item.website
-                  }}</a>
-                </td>
-                <td>
-                  <a
-                    :href="`https://www.google.com/maps/@${item.address.geo.lat},${item.address.geo.lng},18.25z`"
-                    target="_blank"
-                    >{{ item.address.city }}, {{ item.address.street }},
-                    {{ item.address.suite }}</a
-                  >
-                </td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
-      </template>
-    </div>
-    <script src="js/app.js"></script>
-  </body>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Вход на личную страницу</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="cont_main">
+	  <div class="cont_center">
+	    <div class="cont_login">
+	      <div class="cont_info_log_signup">
+	        <div class="col_md_login">
+	          <div class="cont_opacity">
+	            <h2>Войти</h2>
+	            <p>У вас уже есть логин?</p>
+	            <button class="btn_login" onclick="click_login()">Войти</button>
+	          </div>
+	        </div>
+	        <div class="col_md_signup">
+	          <div class="cont_opacity">
+	            <h2>Регистрация</h2>
+	            <p>Нет логина?</p>
+	            <button class="btn_signup" onclick="click_signup()">Зарегистрироваться</button>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="cont_back_info">
+	        <div class="cont_img_back_grey">
+	          <img src="img/bg.jpg" alt="" />
+	        </div>
+	      </div>
+	      <div class="cont_forms">
+	        <div class="cont_img_back_">
+	          <img src="img/bg.jpg" alt="" />
+	        </div>
+	        <div class="cont_form_login">
+	          <a href="#" onclick="back_login_signup()"><i class="material-icons">&#8656;</i></a>
+	          <h2>Войти</h2>
+	          <input type="text" placeholder="E-mail" />
+	          <input type="password" placeholder="Пароль" />
+	          <button class="btn_login" onclick="click_login()" href="personal_page.html">Войти</button>
+	        </div>
+	        <div class="cont_form_signup">
+	          <a href="#" onclick="back_login_signup()"><i class="material-icons">&#8656;</i></a>
+	          <h2>Регистрация</h2>
+	          <input type="text" placeholder="E-mail" />
+	          <input type="text" placeholder="Логин" />
+	          <input type="password" placeholder="Пароль" />
+	          <input type="password" placeholder="Повторите пароль" />
+	          <button class="btn_sign_up" onclick="click_signup()">Зарегистрироваться</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
+<script  src="js.js"></script>
+</body>
 </html>
